@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Page Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+</head>
+<body>
+
+<h1>Home Page</h1>
+<p>Welcome <span style="color: red;">{{ id }} : {{ name }}</span></p>
+
+<a href="{% url 'PageTest' %}">Redirect Page Test</a>
+
+<hr/>
+<p>LOGIN FORM</p>
+<form id="form_submit">
+    <label>
+        Username:
+        <input type="text" name="Username"/>
+    </label>
+    <br/>
+    <label>
+        Password:
+        <input type="text" name="Password"/>
+    </label>
+    <br/>
+    <input type="submit" name="Login"/>
+</form>
+<script>
+    $(document).ready(function () {
+        $('#form_submit').submit(function (event) {
+            console.log($(this).serializeArray());
+            alert("Handler for .submit() called.");
+            event.preventDefault();
+        });
+    });
+</script>
+</body>
+</html>
